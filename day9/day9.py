@@ -1,7 +1,7 @@
 # https://adventofcode.com/2021/day/9
 from queue import Queue
 
-def part1(locs):
+def part1(locs, pr=True):
     ans = 0
     low_points = []
     for y in range(len(locs)):
@@ -22,11 +22,11 @@ def part1(locs):
             if ok:
                 ans += locs[y][x]+1
                 low_points.append([y, x])
-    print('Part 1:', ans)
+    if pr: print('Part 1:', ans)  # we don't have to print when part1() is called in part2()
     return low_points
 
 def part2(locs):
-    low_points = part1(locs)
+    low_points = part1(locs, pr=False)
     max_three = [0, 0, 0]
     for src in low_points:
         vis = []
