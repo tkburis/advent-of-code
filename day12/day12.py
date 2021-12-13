@@ -29,9 +29,9 @@ def part2(adj):
 
         can_twice = 2 not in set(curr_path.count(x) for x in set(curr_path) if x.islower())  # has a small cave NOT already been visited twice? (i.e. we can visit a small cave twice now)
         if can_twice:
-            can_small_caves = set(x for x in adj[curr_node] if x.islower() and x != 'start')  # if not, then we can go to any small cave we ant
+            can_small_caves = set(x for x in adj[curr_node] if x.islower() and x != 'start')  # if we can, then we can go to any small cave we want
         else:
-            can_small_caves = set(x for x in adj[curr_node] if x not in curr_path and x.islower() and x != 'start')  # if so, then we can only go to small caves we have not visited yet
+            can_small_caves = set(x for x in adj[curr_node] if x not in curr_path and x.islower() and x != 'start')  # if not, then we can only go to small caves we have not visited yet
         can_caves = can_small_caves.union(set(x for x in adj[curr_node] if x.isupper()))
 
         for neighbour in adj[curr_node]:
