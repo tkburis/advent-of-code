@@ -42,8 +42,7 @@ def main():
             ln = ln.strip()
             ln = ln.split(' -> ')
             rules[ln[0]] = ln[1]
-            distincts.update(ln[0])
-            distincts.add(ln[1])
+            distincts.update(ln[0], ln[1])
     part1(base, rules)
     part2(base, rules, distincts)
 
